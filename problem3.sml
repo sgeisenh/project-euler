@@ -1,24 +1,14 @@
-fun isFactor p n = (i mod p = 0)
-
-fun primes n =
-  let
-    fun primes' [] = []
-      | primes' p::l =
-      p::(primes' (List.filter (not o (isFactor p) l)))
-  in
-    primes' (List.tabulate (fn i => i + 2) (n - 2))
-  end
+fun isFactor p n = (n mod p = IntInf.toLarge(0))
 
 fun largestPrimeFactor b =
   let
-    val pn = (int) Math.sqrt((real) b)
-    val ps = List.rev(primes)
-    fun lpf [] = ~1
-      | lpf p::pl =
-        if isFactor p b then p
-        else lpf pl 
+    fun lpf i n =
+      if i = n then i
+      else if isFactor i n then lpf (i + 1) (n div i)
+      else lpf (i + 1) n
   in
-    lpf ps
+    lpf (IntInf.toLarge(2)) b
   end
 
-val () = print(Int.toString(largestPrimeFactor 600851475143) ^ "\n")
+val b = valOf(IntInf.fromString("600851475143"))
+val () = print(IntInf.toString(largestPrimeFactor b) ^ "\n")
