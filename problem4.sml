@@ -4,9 +4,9 @@ fun palprod n1 n2 =
     let
       val p = n1 * n2
       val prod = Int.toString p
-      val prodtok = String.tokens (fn _ => false) prod
+      val prodtok = String.explode prod
       val prodtokrev = List.rev prodtok
-      val prodrev = String.concat prodtokrev
+      val prodrev = String.implode prodtokrev
     in
       case String.compare(prod, prodrev)
         of EQUAL => p
