@@ -4,7 +4,7 @@ fun largestPrimeFactor b =
   let
     fun lpf i n =
       if i = n then i
-      else if isFactor i n then lpf (i + 1) (n div i)
+      else if isFactor i n then lpf i (n div i)
       else lpf (i + 1) n
   in
     lpf (IntInf.toLarge(2)) b
