@@ -1,1 +1,1 @@
-I will be logging my Project Euler progress in this repo. I think that ML has some of the most elegant solutions to many of these problems.
+Solutions to Project Euler problems in several languages. I will update this repository as I make progress.
