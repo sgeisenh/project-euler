@@ -21,4 +21,4 @@ val maxprod =
     foldl Int.max 0 prods
   end
 
-val () = print(Int.toString maxprod ^ "\n")
+val () = print (Int.toString maxprod ^ "\n")
